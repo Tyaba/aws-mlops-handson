@@ -1,0 +1,30 @@
+name: Run tests and linters
+
+on:
+  push:
+    branches: [main]
+    paths: ['3-mlops-handson/**']
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./3-mlops-handson
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install poetry=="1.4.2"
+          poetry install
+      - name: Run pysen lint
+        run: |
+          poetry run pysen run lint
+      - name: Run tests
+        run: |
+          poetry run pytest

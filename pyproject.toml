@@ -1,0 +1,62 @@
+[tool.poetry]
+name = "mlops-handson"
+version = "1.0.0"
+description = "mlops handson on aws"
+authors = ["Tyaba <tepei@keio.jp>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+scikit-learn = "^1.2.2"
+fastapi = "^0.95.1"
+polars = "^0.17.7"
+boto3 = "1.26.114"
+coloredlogs = "^15.0.1"
+optuna = "3.1.1"
+httpx = "^0.24.0"
+uvicorn = "0.21.1"
+pyarrow = "^16.0.0"
+
+[tool.poetry.group.dev.dependencies]
+notebook = "^6.5.4"
+pysen = "^0.10.4"
+taskipy = "^1.10.4"
+black = "^23.3.0"
+flake8 = "^6.0.0"
+isort = "^5.12.0"
+mypy = "^1.2.0"
+pytest = "^7.3.1"
+
+[tool.taskipy.tasks]
+format = "pysen run format"
+lint = "pysen run lint"
+test = "pytest"
+
+[tool.pysen]
+version = "0.10"
+
+[tool.pysen.lint]
+enable_black = true
+enable_flake8 = true
+enable_isort = true
+enable_mypy = true
+isort_known_first_party = ["ml", "predictor"]
+mypy_preset = "strict"
+line_length = 120
+py_version = "py311"
+
+[[tool.pysen.lint.mypy_targets]]
+  paths = ["ml/", "predictor/"]
+
+[tool.pysen.lint.source]
+  includes = ["ml", "predictor"]
+  excludes = ["tests/"]
+
+[tool.pysen.lint.mypy_modules."pysen.scripts"]
+  preset = "entry"
+
+[tool.pysen.lint.mypy_modules."numpy"]
+  ignore_errors = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning",]
