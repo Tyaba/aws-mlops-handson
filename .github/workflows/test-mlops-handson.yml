@@ -3,14 +3,10 @@ name: Run tests and linters
 on:
   push:
     branches: [main]
-    paths: ['3-mlops-handson/**']
 
 jobs:
   tests:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./3-mlops-handson
     steps:
       - uses: actions/checkout@v2
       - name: Set up Python 3.11
