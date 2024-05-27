@@ -35,9 +35,7 @@ class CTRModelPreprocessor(BasePreprocessor):
 
     def run(self, df: pl.dataframe.frame.DataFrame) -> csr_matrix:
         logger.info("Started CTR Model Preprocessor.")
-        hashed_feature = self.feature_hasher.fit_transform(
-            np.array(df.select(pl.all().cast(str)))
-        )
+        hashed_feature = self.feature_hasher.fit_transform(np.array(df.select(pl.all().cast(str))))
 
         logger.info("Finished CTR Model Preprocessor.")
         return hashed_feature

@@ -16,12 +16,8 @@ def load_options() -> argparse.Namespace:
     """
     parser = argparse.ArgumentParser(description=description)
 
-    parser.add_argument(
-        "-b", "--bucket", type=str, default=os.getenv("AWS_BUCKET", "mlops-handson")
-    )
-    parser.add_argument(
-        "-v", "--version", type=str, default=os.getenv("VERSION", "2024-05-14")
-    )
+    parser.add_argument("-b", "--bucket", type=str, default=os.getenv("AWS_BUCKET", "mlops-handson"))
+    parser.add_argument("-v", "--version", type=str, default=os.getenv("VERSION", "2024-05-14"))
     parser.add_argument(
         "-m",
         "--model_name",
@@ -42,9 +38,7 @@ def main() -> None:
     preprocessor = model_info.preprocessor()
     data_loader = DataLoader(args.bucket)
 
-    raw_data = data_loader.load(
-        s3_key=raw_data_s3_key, file_path=path_retrieve.raw_data_path
-    )
+    raw_data = data_loader.load(s3_key=raw_data_s3_key, file_path=path_retrieve.raw_data_path)
     dataset = data_loader.train_test_split(raw_data=raw_data, preprocessor=preprocessor)
     data_loader.save(
         dataset=dataset,

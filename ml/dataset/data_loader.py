@@ -23,14 +23,10 @@ class DataLoader:
         logger.info(f"Finished {file_path} data. data shape: {df.shape}")
         return df
 
-    def train_test_split(
-        self, raw_data: pl.dataframe.frame.DataFrame, preprocessor: BasePreprocessor
-    ) -> Dataset:
+    def train_test_split(self, raw_data: pl.dataframe.frame.DataFrame, preprocessor: BasePreprocessor) -> Dataset:
         logger.info("Started train test split.")
         train_data, test_data = train_test_split(raw_data, test_size=0.1, shuffle=False)
-        train_data, valid_data = train_test_split(
-            train_data, test_size=0.1, shuffle=False
-        )
+        train_data, valid_data = train_test_split(train_data, test_size=0.1, shuffle=False)
         X_train = train_data[preprocessor.feature]
         Y_train = train_data[TARGET]
         X_test = test_data[preprocessor.feature]
