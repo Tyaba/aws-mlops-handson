@@ -26,10 +26,10 @@ To showcase industry-standard practices, this repository guide you in deploying 
 AWS Infra Architecture made by this repository.
 
 ### ML Pipeline
-![ml_pipeline](https://github.com/Tyaba/aws-mlops-handson/assets/44280132/c76d7457-4781-458a-b1d9-fc681c687669)
+![ml_pipeline](https://github.com/Tyaba/aws-mlops-handson/assets/44280132/4548e4ce-b4cb-49ec-8b8f-a3e88eb2d30a)
 
 ### Predict Server
-![predict_server](https://github.com/Tyaba/aws-mlops-handson/assets/44280132/ab381456-d4f7-40ce-9fb2-521e1cd5ac1a)
+![predict_server](https://github.com/Tyaba/aws-mlops-handson/assets/44280132/2ff9e00b-220c-4b96-ab2b-c4dfb880c173)
 
 ## Requirements
 | Software                   | Install (Mac)              |
