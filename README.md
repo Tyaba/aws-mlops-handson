@@ -4,7 +4,7 @@ With a focus on AWS services, this repository offer practical learning experienc
 
 This repository is based on [nsakki55/aws-mlops-handson](https://github.com/nsakki55/aws-mlops-handson/tree/main)(2023). I have made some version upgrades and bug fixes and have published this repository with the consent of [nsakki55](https://github.com/nsakki55).
 
-Slide[japanese]: https://example.com/
+Slide[japanese]: https://speakerdeck.com/tyaba/mlops-handson
 
 ## Key Features
 ### Python Development Environment
